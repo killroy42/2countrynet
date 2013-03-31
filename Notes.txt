@@ -1,0 +1,3 @@
+http://usa2-vn.mixstream.net:8928/
+http://usa2-vn.mixstream.net:8928/;stream.nsv
+http://usa2-vn.mixstream.net:8928/;stream.mp3

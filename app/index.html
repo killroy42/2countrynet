@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/app.css" rel="stylesheet" media="screen">
+		<script type="text/javascript">
+		
+			var isPlaying = false;
+			var audioStream;
+			
+			function CreateStream() {
+				try {
+					audioStream = new Audio('http://usa2-vn.mixstream.net:8928/;stream.mp3');
+					audioStream.id = 'audioStream';
+				} catch (e) {
+					alert('no audio support!');
+				} 
+			}
+			
+			function PlayStream() {
+				audioStream.play();
+			}
+			
+			function PauseStream() {
+				audioStream.pause();
+			}
+			
+			
+			function PlayPauseButton(sender) {
+				if(audioStream === undefined) CreateStream();
+				if(!isPlaying) {
+					isPlaying = true;
+					PlayStream();
+					sender.innerHTML = 'Pause Stream';
+				} else {
+					isPlaying = false;
+					PauseStream();
+					sender.innerHTML = 'Listen Live';
+				}
+			}
+		</script>
+  </head>
+  <body>
+		
+		<div class="text-center"><img src="img/mainlogo.png"></div>
+    <h1 class="text-center">2country.net</h1>
+		
+		<div class="text-center"><button class="btn btn-primary btn-large" onclick="PlayPauseButton(this); this.innerHTML = 'Pause';">Listen Live</button></div>
+		<p class="text-center"><a href="http://www.2country.net/">www.2country.net</a></p>
+		<p class="text-center">
+			<audio controls="controls">
+				<source src="http://usa2-vn.mixstream.net:8928/;">
+				<source src="http://usa2-vn.mixstream.net:8928/;stream.oga" type="audio/ogg">
+				<source src="http://usa2-vn.mixstream.net:8928/;stream.mp3" type="audio/mp3">
+				<source src="http://usa2-vn.mixstream.net:8928/;stream.m4a" type="audio/mp4">
+				<source src="http://usa2-vn.mixstream.net:8928/;stream.wav" type="audio/wav">
+				<source src="mms://usa2-vn.mixstream.net:8928/;stream.mp3" type="audio/mp3">
+			</audio>
+		</p>
+		
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
